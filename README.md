@@ -6,6 +6,7 @@ AI-powered motor condition monitoring and anomaly detection using Arduino UNO Q.
 
 Python project scaffold with validated sensor records, CSV storage, and a
 source-independent sensor interface with a working CSV adapter.
+Motor profiles and model input/output contracts are defined without trained models.
 Hardware acquisition, FFT processing, machine learning, and the dashboard
 are planned for later stages and are not implemented yet.
 
@@ -43,6 +44,9 @@ for the data management API and [sensor sources](docs/sensor-interface.md)
 for reading records through the shared interface. Measurement files in `data/raw/` and
 `data/processed/` are excluded from Git.
 
+See [motor profiles and model contracts](docs/motor-profile.md) for configuration,
+ordered features, and explicit unavailable-model/data outcomes.
+
 ## Verification
 
 Run the standard-library test suite from the repository root:
@@ -53,5 +57,5 @@ python -m unittest discover -s tests -v
 
 ## Next step
 
-Define Motor Profile and model input/output contracts. Connect Arduino UNO Q
-through a new sensor source adapter when hardware is available.
+Build the dashboard skeleton around the shared data/profile contracts. Connect
+Arduino UNO Q through a new sensor source adapter when hardware is available.

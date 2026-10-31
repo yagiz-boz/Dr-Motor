@@ -70,6 +70,18 @@ class MotorContractTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             FeatureVector(self.spec, (0.2,))
 
+    def test_feature_input_must_be_a_mapping(self):
+        for features in (None, ["current_rms", "temperature_mean"],
+                         (0.2, 25), "current_rms", 42):
+            with self.subTest(features=features), self.assertRaisesRegex(
+                    ContractError, "mapping"):
+                FeatureVector.from_mapping(self.spec, features)
+
+    def test_read_only_mapping_is_accepted(self):
+        from types import MappingProxyType
+        features = MappingProxyType({"temperature_mean": 25, "current_rms": 0.2})
+        self.assertEqual(FeatureVector.from_mapping(self.spec, features).values, (0.2, 25))
+
     def test_unavailable_outcomes_have_no_diagnosis(self):
         for status in ("model_unavailable", "insufficient_data"):
             result = DetectionResult(status, "Not ready")

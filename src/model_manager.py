@@ -29,6 +29,8 @@ class FeatureVector:
         """Require exact keys and order values according to the model spec."""
         if not isinstance(spec, ModelSpec):
             raise ContractError("spec: ModelSpec required")
+        if not isinstance(features, Mapping):
+            raise ContractError("features: mapping of feature names to numeric values required")
         if set(features) != set(spec.feature_names):
             raise ContractError("features: missing or unexpected feature names")
         return cls(spec, tuple(features[name] for name in spec.feature_names))

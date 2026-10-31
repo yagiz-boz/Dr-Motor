@@ -1,0 +1,2 @@
+# No third-party dependencies required for the initial scaffold.
+# Add dependencies when the corresponding functionality is implemented.

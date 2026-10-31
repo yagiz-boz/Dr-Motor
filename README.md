@@ -4,8 +4,9 @@ AI-powered motor condition monitoring and anomaly detection using Arduino UNO Q.
 
 ## Status
 
-Initial Python project scaffold. Data acquisition, FFT processing, machine learning,
-and the dashboard are planned for later stages and are not implemented yet.
+Python project scaffold with validated sensor records and CSV storage.
+Hardware acquisition, FFT processing, machine learning, and the dashboard
+are planned for later stages and are not implemented yet.
 
 ## Project structure
 
@@ -14,7 +15,7 @@ Dr-Motor/
 ├── README.md
 ├── .gitignore
 ├── requirements.txt
-├── src/          # Future Python application code
+├── src/          # Sensor record validation and CSV data manager
 ├── data/         # Local motor measurements (ignored by Git)
 ├── models/       # Local trained model artifacts (ignored by Git)
 ├── dashboard/    # Future dashboard code
@@ -36,9 +37,19 @@ python -m pip install -r requirements.txt
 On macOS/Linux, activate with `source .venv/bin/activate` instead.
 
 No third-party dependencies are required at this stage. There is no application
-entry point yet.
+entry point yet. See [the data format and usage example](docs/data-format.md)
+for the data management API. Measurement files in `data/raw/` and
+`data/processed/` are excluded from Git.
+
+## Verification
+
+Run the standard-library test suite from the repository root:
+
+```powershell
+python -m unittest discover -s tests -v
+```
 
 ## Next step
 
-Define the Arduino UNO Q data format and acquisition interface before adding
-signal processing or model code.
+Implement the source adapter interface using the shared sensor record contract,
+then connect Arduino UNO Q when hardware is available.

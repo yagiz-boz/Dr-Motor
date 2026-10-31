@@ -17,6 +17,10 @@ from src.sensor_interface import CsvSensorSource
 
 
 st.set_page_config(page_title="Dr. Motor", page_icon="⚙️", layout="wide")
+st.markdown(
+    "<style>" + (Path(__file__).with_name("ambient.css")).read_text(encoding="utf-8") + "</style>",
+    unsafe_allow_html=True,
+)
 st.title("Dr. Motor")
 st.caption("Motor ölçümlerini yükle, kontrol et ve incele.")
 

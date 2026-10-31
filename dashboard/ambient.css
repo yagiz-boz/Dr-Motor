@@ -1,0 +1,76 @@
+/* Optional ambient treatment; the plain dashboard lives on feature/local-dashboard. */
+[data-testid="stAppViewContainer"] {
+  background:
+    radial-gradient(ellipse at 92% 2%, rgba(76, 188, 193, .23), transparent 43%),
+    radial-gradient(ellipse at 38% 85%, rgba(117, 131, 220, .15), transparent 48%),
+    linear-gradient(125deg, #f6f9fc 10%, #edf5f7 56%, #f5f4fc 100%);
+  background-attachment: fixed;
+}
+[data-testid="stMain"] {
+  background-image:
+    linear-gradient(rgba(41, 88, 109, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 88, 109, .035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+[data-testid="stHeader"] {
+  background: rgba(247, 250, 253, .70);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(112, 153, 176, .15);
+}
+[data-testid="stSidebar"] {
+  background: linear-gradient(165deg, rgba(246, 252, 255, .97), rgba(229, 241, 246, .95));
+  border-right: 1px solid rgba(87, 139, 161, .18);
+  box-shadow: 10px 0 45px rgba(32, 75, 101, .045);
+}
+[data-testid="stMainBlockContainer"] {
+  max-width: 1280px;
+  padding-top: 3.5rem;
+}
+[data-testid="stHeadingWithActionElements"] h1 {
+  letter-spacing: -.055em;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  color: #15364b;
+}
+[data-testid="stMainBlockContainer"] > div {
+  position: relative;
+}
+[data-testid="stAlert"] {
+  border: 1px solid rgba(41, 136, 153, .18);
+  background: rgba(235, 248, 250, .86);
+  box-shadow: 0 6px 24px rgba(28, 90, 109, .045);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+[data-testid="stMetric"] {
+  padding: 1.3rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, .95);
+  background: rgba(255, 255, 255, .75);
+  box-shadow: 0 12px 36px rgba(36, 74, 104, .06);
+}
+[data-testid="stFileUploader"] {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .55);
+}
+[data-testid="stFileUploaderDropzone"] {
+  border: 1px dashed rgba(20, 125, 146, .35);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .72);
+}
+[data-testid="stDownloadButton"] button {
+  border-radius: 12px;
+  border-color: rgba(20, 125, 146, .24);
+  box-shadow: 0 4px 12px rgba(27, 83, 102, .04);
+}
+[data-testid="stDataFrame"], [data-testid="stVegaLiteChart"] {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(30, 70, 95, .045);
+}
+@media (prefers-reduced-transparency: reduce) {
+  [data-testid="stHeader"], [data-testid="stAlert"] {
+    backdrop-filter: none;
+    background: #edf6f9;
+  }
+}
